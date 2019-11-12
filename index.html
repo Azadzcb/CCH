@@ -1,12 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>CC酒店</title>
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/content.css">
+    <style>
+        /* CSS reset 开始 */
+        html,body {height: 100%; /*禁用滚动条 */overflow: hidden;}
+        html,body,h1,h2,h3,h4,h5,h6,p,ul,li {margin: 0;padding: 0;font: 14px "微软雅黑";}
+        a {text-decoration: none;display: block;}
+        li {list-style: none;}
+        /* CSS reset 结束 */
+        /* common CSS 开始 */
+        .clearfix {*zoom: 1;}
+        .clearfix:after {content: ""; display: block; clear: both;}
+        /* common CSS 结束 */
+    </style>
 </head>
+
 <body>
-    
+    <section id="wrap">
+        <!-- 流体布局 -->
+        <!-- 头部 -->
+        <header id="head">
+            <!-- 固定布局 -->
+            <div class="head-main">
+                <!-- logo -->
+                <h1 class="logo">
+                    <a href="javascript:;">
+                        CCHotel
+                        <!-- <img src="./images/logo.png" alt=""> -->
+                    </a>
+                </h1>
+                <!-- 导航 -->
+                <nav class="nav">
+                    <ul class="list clearfix">
+                        <li>
+                            <a href="javacsript:;">
+                                <div class="up">
+                                    <img src="images/home_gruen.png" alt=""></div>
+                                <div class="down">
+                                    <img src="images/home.png" alt=""></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javacsript:;">
+                                <div class="up">首页</div>
+                                <div class="down">首页</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javacsript:;">
+                                <div class="up">产品案例</div>
+                                <div class="down">产品案例</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javacsript:;">
+                                <div class="up">关于我们</div>
+                                <div class="down">关于我们</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javacsript:;">
+                                <div class="up">联系我们</div>
+                                <div class="down">联系我们</div>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- 下拉箭头 -->
+                <div class="arrow">
+
+                </div>
+            </div>
+        </header>
+        <!-- 内容区域 -->
+        <section id="content">
+            <ul class="list">
+                <li class="home">
+                    <div class="">Home</div>
+                </li>
+                <li class="jianjie">
+                    <div class="">首页</div>
+                </li>
+                <li class="anli">
+                    <div class="">产品案例</div>
+                </li>
+                <li class="guanyu">
+                    <div class="">关于我们</div>
+                </li>
+                <li class="lianxi">
+                    <div class="">联系我们</div>
+                </li>
+            </ul>
+        </section>
+    </section>
 </body>
+<script src="/js/index.js"></script>
+<script src="/js/head.js"></script>
 </html>

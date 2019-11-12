@@ -1,0 +1,65 @@
+#head {
+    background: white !important;
+    width: 100%;
+}
+
+#head .head-main {
+    width: 1100px;
+    height: 80px;
+    background: pink;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* logo样式 */
+#head .head-main>.logo {
+    float: left;
+    margin-top: 30px;
+}
+/* 文字logo */
+#head .head-main>.logo>a {
+    font-size: 30px;
+}
+
+/* 导航样式 */
+#head .head-main>nav {
+    float: right;
+    margin-top: 50px;
+}
+
+/* 两个样式叠加起来 */
+#head .head-main>.nav>.list>li {
+    float: left;
+    margin-left: 40px;
+    position: relative;
+    white-space: nowrap
+}
+#head .head-main>.nav>.list>li .down {
+    font-size: 16px;
+}
+#head .head-main>.nav>.list>li .up {
+    font-size: 16px;
+    color: #000000;
+    position: absolute;
+    width: 0;
+    /*宽度为零隐藏上层*/
+    overflow: hidden;
+    /*容器宽度为零里面的东西会溢出,使用voerflow样式清除溢出*/
+    transition: 1s width;
+}
+
+/* 鼠标移动到元素时,隐藏的样式出现 */
+#head .head-main>.nav>.list>li:hover .up {
+    width: 100%;
+}
+
+/* 下标样式 */
+#head .head-main>.arrow {
+    width: 21px;
+    height: 11px;
+    background: url(/images/menuIndicator.png);
+    position: absolute;
+    left: 50%;
+    bottom: -11px;
+    transition: 1s left;
+}

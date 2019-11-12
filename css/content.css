@@ -1,0 +1,47 @@
+#content {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+#content .list {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    transition: 1s top;
+}
+#content .list>li {
+    position: relative;
+    background-position: 50% 50% !important;
+}
+#content .list>li >div {
+    width: 1100px;
+    height: 520px;
+    background: yellow;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+#content .list>.home {
+    background: url(/images/bg1.jpg) no-repeat;
+    background-size: cover;
+}
+#content .list>.jianjie {
+    background: url(/images/bg2.jpg) no-repeat;
+    background-size: cover;
+}
+#content .list>.anli {
+    background: url(/images/bg3.jpg) no-repeat;
+    background-size: cover;
+}
+#content .list>.guanyu {
+    background: url(/images/bg4.jpg) no-repeat;
+    background-size: cover;
+}
+#content .list>.lianxi {
+    background: url(/images/bg5.jpg) no-repeat;
+    background-size: cover;
+}
