@@ -6,7 +6,7 @@
 #head .head-main {
     width: 1100px;
     height: 80px;
-    background: pink;
+    /* background: pink; */
     margin: 0 auto;
     position: relative;
 }
@@ -22,7 +22,7 @@
 }
 
 /* 导航样式 */
-#head .head-main>nav {
+#head .head-main>.nav {
     float: right;
     margin-top: 50px;
 }
@@ -62,4 +62,5 @@
     left: 50%;
     bottom: -11px;
     transition: 1s left;
+    z-index: 2;
 }
