@@ -28,11 +28,116 @@
     left: 0;
     margin: auto;
 }
+
+/* -------------------------------------------------------------------- */
 /* 第一屏样式 */
+    /* 背景图片 */
 #content>.list>.home {
     background: url(/images/bg1.jpg) no-repeat;
     background-size: cover;
 }
+    /* 内容背景 */
+#content>.list>.home .home1 {
+    width: 100%;
+    height: 100%;
+    /* 3D */
+    transform-style: preserve-3d;
+    /* 景深 */
+    perspective: 1000px;
+}
+#content>.list>.home .home1>li {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    /* 隐藏背景 */
+    visibility: hidden;
+}
+
+#content>.list>.home .home1>li:nth-child(1) {
+    background: #dc6c5f;    
+}
+#content>.list>.home .home1>li:nth-child(2) {
+    background: #95dc84;
+}
+#content>.list>.home .home1>li:nth-child(3) {
+    background: #64b9d2;
+}
+#content>.list>.home .home1>li:nth-child(4) {
+    background: #000000;
+}
+#content>.list>.home .home1>li > div {
+    color: white;
+    text-align: center;
+    margin-top: 200px;
+}
+#content>.list>.home .home1>li.active {
+    visibility: visible;
+}
+
+/* 小圆点样式 */
+#content>.list>.home .home2 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+}
+#content>.list>.home .home2 >li {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    display: inline-block;
+    box-shadow: 0 0 4px rgba(25, 25, 25, 0.8);
+    cursor: pointer;
+}
+#content>.list>.home .home2 >li.active {
+    background: white;
+    cursor: default;
+}
+
+/* 从左往右 leftHide rightShow */
+#content>.list>.home .home1 >li.leftHide {
+    visibility: hidden;
+    animation: 1s leftHide 1 linear;
+}
+#content>.list>.home .home1 >li.rightShow {
+    visibility: visible;
+    animation: 1s rightShow 1 linear;
+}
+@keyframes leftHide {
+    0% {visibility: visible;}
+    50% {transform: translateX(-40%) rotateY(30deg) scale(.8);}
+    100% {visibility: hidden; transform: translateZ(-200px);}
+}
+@keyframes rightShow {
+    0% {visibility: hidden; transform: translateZ(-200px);}
+    50% { transform: translateX(40%) rotateY(-30deg) scale(.8);}
+    100% {}
+}
+/* 从右往左 leftShow rightHide */
+#content>.list>.home .home1 >li.leftShow {
+    visibility: visible;
+    animation: 1s leftShow 1 linear;
+}
+#content>.list>.home .home1 >li.rightHide {
+    visibility: hidden;
+    animation: 1s rightHide 1 linear;
+}
+@keyframes leftShow {
+    0% {visibility: hidden; transform: translateZ(-200px);}
+    50% { transform: translateX(-40%) rotateY(30deg) scale(.8);}
+    100% {}
+    
+}
+@keyframes rightHide {
+    0% {visibility: visible;}
+    50% {transform: translateX(40%) rotateY(-30deg) scale(.8);}
+    100% {visibility: hidden; transform: translateZ(-200px);}
+}
+/* ------------------------------------------------------------------------- */
 /* 第二屏样式 */
 #content>.list>.jianjie {
     background: url(/images/bg2.jpg) no-repeat;
@@ -135,9 +240,6 @@
     background: url(/images/bks.png) no-repeat;
 }
 
-
-
-
 #content>.list>.jianjie .jianjie3 .item .face {
     transform: rotateY(180deg);
     backface-visibility: hidden;
@@ -150,7 +252,7 @@
 #content>.list>.jianjie .jianjie3 .item:hover .back-face{
     transform: rotateY(180deg);
 }
-
+/* ------------------------------------------------------------------ */
 /* 第三屏样式 */
 #content>.list>.anli {
     background: url(/images/bg3.jpg) no-repeat;
@@ -222,18 +324,158 @@
     50% {transform: translateX(-500px) rotateY(180deg);}
     100% {transform: translateX(0px) rotateY(180deg);}
 }
-
-
-
-
-
+/* ---------------------------------------------------------------- */
 /* 第四屏样式 */
 #content>.list>.guanyu {
     background: url(/images/bg4.jpg) no-repeat;
     background-size: cover;
 }
+#content>.list>.guanyu .guanyu1 {
+    margin: 50px 0 100px 50px;
+}
+#content>.list>.guanyu .guanyu2 {
+    margin-left: 50px;
+    width: 400px;
+}
+#content>.list>.guanyu .guanyu3 >.item {
+    width: 260px;
+    height: 200px;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    position: absolute;
+    z-index: 2;
+    overflow: hidden;
+}
+
+#content>.list>.guanyu .guanyu3 >.item:nth-child(1) {
+    left: 750px;
+    top: 50px;
+}
+#content>.list>.guanyu .guanyu3 >.item:nth-child(2) {
+    left: 600px;
+    top: 290px;
+}
+#content>.list>.guanyu .guanyu4 {
+    width: 357px;
+    height: 998px;
+    position: absolute;
+    background: url(/images/greenLine.png) no-repeat;
+    left: 50%;
+    top: -170px;
+}
+#content>.list>.guanyu .guanyu3 >.item>div,#content>.list>.guanyu .guanyu3 >.item>ul {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+#content>.list>.guanyu .guanyu3 >.item:nth-child(1)>div{
+    background: url(/images/about2.jpg);
+    transform: scale(1.5);
+    transition: .8s transform;
+}
+#content>.list>.guanyu .guanyu3 >.item:nth-child(2)>div{
+    background: url(/images/about4.jpg);
+    transform: scale(1.5);
+    transition: .8s transform;
+}
+#content>.list>.guanyu .guanyu3 >.item:hover div {
+    transform: scale(1);
+}
+#content>.list>.guanyu .guanyu3 >.item>ul>li {
+    float: left;
+    position: relative;
+    overflow: hidden;
+}
+#content>.list>.guanyu .guanyu3 >.item>ul>li>img {
+    position: absolute;
+    transition: .8s top,.8s left;
+}
+/* --------------------------------------------------------------- */
 /* 第五屏样式 */
 #content>.list>.lianxi {
     background: url(/images/bg5.jpg) no-repeat;
     background-size: cover;
+}
+#content>.list>.lianxi .lianxi1 {
+    width: 400px;
+    margin: 50px;
+    float: left;
+}
+#content>.list>.lianxi .lianxi2 {
+    width: 400px;
+    margin: 50px;
+    float: right;   
+}
+#content>.list>.lianxi .lianxi3 {
+    width: 944px;
+    height: 448px;
+    position: absolute;
+    left: 50%;
+    margin-left: -472px;
+    top: 260px;
+}
+#content>.list>.lianxi .lianxi3>ul {
+    position: relative;
+    height: 100%;
+}
+#content>.list>.lianxi .lianxi3>ul>li {
+    width: 118px;
+    height: 100%;
+    background: url(/images/team.png) no-repeat;
+    float: left;
+    transition: 1s opacity;
+}
+#content>.list>.lianxi .lianxi3 >ul>li:nth-child(1){
+    background-position: 0 0;
+}
+#content>.list>.lianxi .lianxi3 >ul>li:nth-child(2){
+    background-position: -118px 0;
+}
+#content>.list>.lianxi .lianxi3 >ul>li:nth-child(3){
+    background-position: -236px 0;
+}
+#content>.list>.lianxi .lianxi3 >ul>li:nth-child(4){
+    background-position: -354px 0;
+}
+#content>.list>.lianxi .lianxi3 >ul>li:nth-child(5){
+    background-position: -472px 0;
+}
+#content>.list>.lianxi .lianxi3 >ul>li:nth-child(6){
+    background-position: -590px 0;
+}
+#content>.list>.lianxi .lianxi3 >ul>li:nth-child(7){
+    background-position: -708px 0;
+}
+#content>.list>.lianxi .lianxi3 >ul>li:nth-child(8){
+    background-position: -826px 0;
+}
+/* canvas样式 */
+#content>.list>.lianxi canvas {
+    position: absolute;
+    top: 0px;
+}
+
+
+/* -------------------------------------------------------------- */
+/* 侧边小圆点样式 */
+#content > .dot {
+    position: fixed;
+    right: 10px;
+    top: 50%;
+}
+#content > .dot>li {
+    width: 15px;
+    height: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    margin-top: 10px;
+    z-index: 999;
+    /* background: rgba(255, 255, 255, 0.5); */
+    cursor: pointer;
+}
+#content > .dot>li.active {
+    background: white;
+    cursor: unset;
 }

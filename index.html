@@ -119,28 +119,58 @@
         <!-- 内容区域 -->
         <section id="content">
             <ul class="list">
+                <!-- 第一屏/首页 -->
                 <li class="home">
-                    <section>Home</section>
+                    <section>
+                        <!-- 内容 -->
+                        <ul class="home1">
+                            <li class="commonTitle active">
+                                <div class="item">第一张</div>
+                            </li>
+                            <li class="commonTitle">
+                                <div class="item">第二张</div>
+                            </li>
+                            <li class="commonTitle">
+                                <div class="item">第三张</div>
+                            </li>
+                            <li class="commonTitle">
+                                <div class="item">第四张</div>
+                            </li>
+                        </ul>
+                        <!-- 圆点 -->
+                        <ul class="home2">
+                            <li class="active"></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+
+                    </section>
                 </li>
+                <!-- 第二屏/简介页面 -->
                 <li class="jianjie">
                     <section>
+                        <!-- 头部文字标题 -->
                         <header class="jianjie1 commonTitle">
                             <span>简介标题</span><br>
                             <span>简介内容1</span><br>
                             <span>简介内容2</span><br>
                         </header>
+                        <!-- 文字内容 -->
                         <div class="jianjie2 commonText">
-                            <p>11111111111111111111111111111111111111111111111111111111111111111111111111111111<br>
-                            22222222222222222222222222222222222222222222222222222222222222222222222222222222222
+                            <p class="commonText">11111111111111111111111111111111111111111111111111111111111111111111111111111111<br>
+                                22222222222222222222222222222222222222222222222222222222222222222222222222222222222
                             </p>
                         </div>
+                        <!-- 照片墙 -->
                         <div class="jianjie3">
+                            <!-- 网格线 -->
                             <span class="line"></span>
                             <span class="line"></span>
                             <span class="line"></span>
                             <span class="line"></span>
                             <span class="line"></span>
-
+                            <!-- 照片墙具体内容/文字＋背景图片 -->
                             <div class="item">
                                 <div class="back-face"></div>
                                 <div class="face">测试文字测试文字</div>
@@ -194,15 +224,16 @@
                         </div>
                     </section>
                 </li>
+                <!-- 第三屏/案例页面 -->
                 <li class="anli">
-
                     <section>
+                        <!-- 头部文字标题 -->
                         <header class="anli1 commonTitle">
                             <span>产品案例</span><br />
                             <span>产品案例</span><br />
                             <span>产品案例</span><br />
                         </header>
-
+                        <!-- 案例内容区域 -->
                         <div class="anli2">
                             <div class="item">
                                 <img src="/images/worksimg1.jpg" alt="">
@@ -218,7 +249,6 @@
                                     <div class="icon"></div>
                                 </div>
                             </div>
-
                             <div class="item">
                                 <img src="/images/worksimg3.jpg" alt="">
                                 <div class="mask">
@@ -226,7 +256,6 @@
                                     <div class="icon"></div>
                                 </div>
                             </div>
-
                             <div class="item">
                                 <img src="/images/worksimg4.jpg" alt="">
                                 <div class="mask">
@@ -236,22 +265,75 @@
                             </div>
 
                         </div>
-
+                        <!-- 循环图片 -->
                         <div class="anli3"></div>
 
                     </section>
                 </li>
+                <!-- 第四屏/关于我们页面 -->
                 <li class="guanyu">
-                    <section>关于我们</section>
+                    <section>
+                        <header class="guanyu1 commonTitle">
+                            <span>关于我们</span><br>
+                            <span>关于我们</span><br>
+                            <span>关于我们</span><br>
+                        </header>
+                        <div class="guanyu2">
+                            <p class=" commonText">文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字</p>
+                        </div>
+                        <div class="guanyu3">
+                            <div class="item">
+                                <div></div>
+                                <ul data-src="/images/about1.jpg"></ul>
+                            </div>
+                            <div class="item">
+                                <div></div>
+                                <ul data-src="/images/about3.jpg"></ul>
+                            </div>
+                        </div>
+                        <div class="guanyu4"></div>
+                    </section>
                 </li>
+                <!-- 第五屏/联系我们页面 -->
                 <li class="lianxi">
-                    <section>联系我们</section>
+                    <section>
+                        <header class="lianxi1 commonTitle">
+                            <span>联系我们</span><br>
+                            <span>联系我们</span>
+                        </header>
+                        <div class="lianxi2">
+                            <p class=" commonText">文字文字文字文字文字文字文字文字文字文字文字文字文字文字</p>
+                            <p class=" commonText">文字文字文字文字文字文字文字文字文字文字文字文字</p>
+                        </div>
+                        <div class="lianxi3">
+                            <ul>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>   
+                        </div>
+                        
+                    </section>
                 </li>
+            </ul>
+            <!-- 侧边切换小圆点 -->
+            <ul class="dot">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
             </ul>
         </section>
     </section>
 </body>
 <script src="/js/index.js"></script>
 <script src="/js/head.js"></script>
+<script src="/js/content.js"></script>
 
 </html>

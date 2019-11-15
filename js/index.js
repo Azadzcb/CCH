@@ -10,10 +10,12 @@ window.onload = function () {
     var content = document.querySelector("#content");
     var cLiNodes = document.querySelectorAll("#content .list>li");
     var cList = document.querySelector("#content .list");
+    var dotLis = document.querySelectorAll("#content .dot >li")
 
     // now同步当前屏的索引
     var now = 0;
     var timer = 0;
+
 
 //页面缩小时调用
     window.onresize = function(){
@@ -47,7 +49,19 @@ window.onload = function () {
             liNodes[i].index = i;
             liNodes[i].onclick = function () {
                 //异步执行,此时i为liNodes.length,此时要操作的对象为upNode,this无法指向,所以要新增一个量来传递i的值,也可用闭包解决.
-                move(this.index)
+                move(this.index);
+                now = this.index;
+
+            }
+        }
+        // 侧边小圆点
+        for (var i = 0; i < dotLis.length; i++) {
+            // 转换绑定
+            dotLis[i].index = i;
+            dotLis[i].onclick = function () {
+                //异步执行,此时i为liNodes.length,此时要操作的对象为upNode,this无法指向,所以要新增一个量来传递i的值,也可用闭包解决.
+                move(this.index);
+                now = this.index;
 
             }
         }
@@ -65,19 +79,26 @@ window.onload = function () {
         //     cList.style.top = -index * (document.documentElement.clientHeight - head.offsetHeight) + "px";
         // }
     };
-    // 动画的核心函数
-    move(1);
+    // 页面滑动的核心函数
+    // move(4);
     function move(index) {
         for (var i = 0; i < upNodes.length; i++) {
             // upNodes[i].style.width = "0";
             upNodes[i].style.width = "";
         }
-        now = index;
         upNodes[index].style.width = "100%";
         // 下标小箭头移动,
         arrowEl.style.left = liNodes[index].offsetLeft + liNodes[index].offsetWidth / 2 - arrowEl.offsetWidth / 2 + "px";
         // 页面移动(页面高度距离顶部的位置),例如一页20px,距离顶部0,第二页距离顶部-20px,以此类推
         cList.style.top = -index * (document.documentElement.clientHeight - head.offsetHeight) + "px";
+
+        // 侧边小圆点切换
+        for (var i = 0; i < dotLis.length; i++) {
+            // upNodes[i].style.width = "0";
+            dotLis[i].className = "";
+        }
+        dotLis[index].className = "active";
+
     };
 
 
