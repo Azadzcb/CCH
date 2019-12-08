@@ -56,3 +56,38 @@ li {
     font-size: 15px;
 }
 /* common CSS 结束 */
+#wrap{
+    height: 100%;
+}
+/* 开机动画 */
+#mask{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 100;
+}
+#mask .up{
+    width: 100%;
+    height: 50%;
+    background: deepskyblue;
+    transition: 1s height;
+}
+#mask .down{
+    width: 100%;
+    height: 50%;
+    background: deepskyblue;
+    transition: 1s height;
+    position: absolute;
+    bottom: 0;
+}
+#mask .line{
+    width:0;
+    height: 4px;
+    background: white;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -2px;
+    z-index: 101;
+    transition: 1s width;
+}

@@ -10,7 +10,7 @@ window.onload = function () {
     var content = document.querySelector("#content");
     var cLiNodes = document.querySelectorAll("#content .list>li");
     var cList = document.querySelector("#content .list");
-    var dotLis = document.querySelectorAll("#content .dot >li")
+    var dotLis = document.querySelectorAll("#content .dot >li");
 
     // now同步当前屏的索引
     var now = 0;
@@ -18,6 +18,11 @@ window.onload = function () {
 
     // 上一屏
     var preIndex = 0;
+    // 开机动画
+    var mask = document.querySelector("#mask");
+    var line = document.querySelector("#mask .line");
+    var surface = document.querySelectorAll("#mask div");
+
 // 音频
     var music = document.querySelector("#head .head-main>.music");
     var audio = document.querySelector("#head .head-main>.music audio");
@@ -29,7 +34,39 @@ window.onload = function () {
             audio.pause();
             music.style.background = "url(/images/musicoff.gif)"
         }
-    }
+    };
+// 开机动画
+    loadingAn();
+    function loadingAn(){
+        // 模拟请求实现进度条
+        var arr = ['bg1.jpg','bg2.jpg','bg3.jpg','bg4.jpg','bg5.jpg','about1.jpg','about2.jpg','about3.jpg','about4.jpg','worksimg1.jpg','worksimg2.jpg','worksimg3.jpg','worksimg4.jpg','team.png','greenLine.png'];
+        var flag = 0;
+        for (let i = 0; i < arr.length; i++) {
+            var img = new Image();
+            img.src = "images/"+arr[i];
+            img.onload = function(){
+                flag++;
+                line.style.width = flag/arr.length*100+"%";
+                
+            }
+        }
+        line.addEventListener("transitionend", function(){
+            if (flag === arr.length) {
+                    for (let i = 0; i < surface.length; i++) {
+                        surface[i].style.height = 0+"px"
+                    }
+                    line.style.display = "none";
+                }
+        });
+        // 动画结束后清除开机动画元素
+        surface[0].addEventListener("transitionend",function(){
+            mask.remove();
+            // 打开音频
+            audio.play();
+            // 开始首页轮播图
+            home3D();
+        })
+    };
 // 出入场动画
     var anArr = [
         // 五个对象

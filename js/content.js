@@ -15,7 +15,7 @@ var lianxi3Ul = document.querySelector("#content >.list>.lianxi .lianxi3 ul");
 var oldIndex = 0; //上一次索引
 var timer3D = 0; //定时
 var autoIndex = 0;
-home3D();
+// home3D();
 
 function home3D() {
     for (let i = 0; i < home2LiNodes.length; i++) {
