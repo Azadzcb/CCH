@@ -66,7 +66,7 @@ function home3D() {
             oldIndex = this.index;
 
             // 手动轮播与自动轮播同步
-            // autoIndex = this.index;
+            autoIndex = this.index;
 
             // 重新开始轮播
             // move();
