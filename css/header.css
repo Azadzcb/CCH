@@ -64,3 +64,12 @@
     transition: 1s left;
     z-index: 2;
 }
+/* 音乐播放 */
+#head .head-main>.music{
+    width: 14px;
+    height: 14px;
+    background: url(/images/musicon.gif);
+    float: left;
+    margin: 50px 0 0 5px;
+    cursor: pointer;
+}

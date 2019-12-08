@@ -16,6 +16,144 @@ window.onload = function () {
     var now = 0;
     var timer = 0;
 
+    // 上一屏
+    var preIndex = 0;
+// 音频
+    var music = document.querySelector("#head .head-main>.music");
+    var audio = document.querySelector("#head .head-main>.music audio");
+    music.onclick = function(){
+        if (audio.paused) {
+            audio.play();
+            music.style.background = "url(/images/musicon.gif)"
+        }else{
+            audio.pause();
+            music.style.background = "url(/images/musicoff.gif)"
+        }
+    }
+// 出入场动画
+    var anArr = [
+        // 五个对象
+        {
+            // 第一屏
+            // 入场
+            inAn : function(){
+                var home1 = document.querySelector("#content>.list>.home .home1");
+                var home2 = document.querySelector("#content>.list>.home .home2");
+                // 轮播图
+                home1.style.transform = "translateY(0px)";
+                // 小圆点
+                home2.style.transform = "translateY(0px)";
+                home1.style.opacity = 1;
+                home2.style.opacity = 1;
+            },
+            // 出场
+            outAn : function(){
+                var home1 = document.querySelector("#content>.list>.home .home1");
+                var home2 = document.querySelector("#content>.list>.home .home2");
+                // 轮播图从上向下出现
+                home1.style.transform = "translateY(-400px)";
+                // 小圆点从下往上出现
+                home2.style.transform = "translateY(100px)";
+                home1.style.opacity = 0;
+                home2.style.opacity = 0;
+            }
+            
+        },
+        {
+            // 第二屏
+            inAn : function(){
+                var plane1 = document.querySelector("#content .jianjie .plane1");
+                var plane2 = document.querySelector("#content .jianjie .plane2");
+                var plane3 = document.querySelector("#content .jianjie .plane3");
+
+                plane1.style.transform = "translate(0px, 0px)";
+                plane2.style.transform = "translate(0px, 0px)";
+                plane3.style.transform = "translate(0px, 0px)";
+            },
+        
+            outAn : function(){
+                var plane1 = document.querySelector("#content .jianjie .plane1");
+                var plane2 = document.querySelector("#content .jianjie .plane2");
+                var plane3 = document.querySelector("#content .jianjie .plane3");
+
+                plane1.style.transform = "translate(-200px, -200px)";
+                plane2.style.transform = "translate(-200px, 200px)";
+                plane3.style.transform = "translate(200px, -200px)";
+            }
+        },
+        {
+            // 第三屏
+            inAn : function(){
+                var pencel1 = document.querySelector("#content>.list .pencel1")
+                var pencel2 = document.querySelector("#content>.list .pencel2")
+                var pencel3 = document.querySelector("#content>.list .pencel3")
+
+                pencel1.style.transform = "translateY(0px)";
+                pencel2.style.transform = "translateY(0px)";
+                pencel3.style.transform = "translateY(0px)";
+            },
+            outAn : function(){
+                var pencel1 = document.querySelector("#content>.list .pencel1")
+                var pencel2 = document.querySelector("#content>.list .pencel2")
+                var pencel3 = document.querySelector("#content>.list .pencel3")
+
+                pencel1.style.transform = "translateY(-100px)";
+                pencel2.style.transform = "translateY(100px)";
+                pencel3.style.transform = "translateY(100px)";
+            }
+        },
+        {
+            // 第四屏
+            inAn : function(){
+                var rect1 = document.querySelector("#content>.list>.guanyu .guanyu3>.item:nth-child(1)")
+                var rect2 = document.querySelector("#content>.list>.guanyu .guanyu3>.item:nth-child(2)")
+
+                rect1.style.transform = "rotate(0deg)";
+                rect2.style.transform = "rotate(0deg)";
+            },
+            outAn : function(){
+                var rect1 = document.querySelector("#content>.list>.guanyu .guanyu3>.item:nth-child(1)")
+                var rect2 = document.querySelector("#content>.list>.guanyu .guanyu3>.item:nth-child(2)")
+
+                rect1.style.transform = "rotate(45deg)";
+                rect2.style.transform = "rotate(-45deg)";
+            }
+        },
+        {
+            // 第五屏
+            inAn : function(){
+                var title1 = document.querySelector("#content>.list>.lianxi .lianxi1")
+                var title2 = document.querySelector("#content>.list>.lianxi .lianxi2")
+
+                title1.style.transform = "translateX(0px)"
+                title2.style.transform = "translateX(0px)"
+            },
+            outAn : function(){
+                var title1 = document.querySelector("#content>.list>.lianxi .lianxi1")
+                var title2 = document.querySelector("#content>.list>.lianxi .lianxi2")
+
+                title1.style.transform = "translateX(-200px)"
+                title2.style.transform = "translateX(200px)"
+            }
+        },
+
+    ]
+    // 调用
+    for (let i = 0; i < anArr.length; i++) {
+        anArr[i]["outAn"]();
+        
+    }
+    setTimeout(function(){
+        anArr[0].inAn()
+    },1000)
+    // 测试
+    // anArr[4].outAn();
+    // setTimeout(function(){
+    //     anArr[4].inAn();
+    // },3000)
+
+
+
 
 //页面缩小时调用
     window.onresize = function(){
@@ -48,7 +186,11 @@ window.onload = function () {
             // 转换绑定
             liNodes[i].index = i;
             liNodes[i].onclick = function () {
-                //异步执行,此时i为liNodes.length,此时要操作的对象为upNode,this无法指向,所以要新增一个量来传递i的值,也可用闭包解决.
+                //异步执行,此时i为liNodes.length,此时要操作的对象为upNode,this无法指向,所以要新增一个量来传递i的值,也可用闭包和let解决.
+
+                // 上一屏
+                preIndex = now;
+
                 move(this.index);
                 now = this.index;
 
@@ -60,6 +202,10 @@ window.onload = function () {
             dotLis[i].index = i;
             dotLis[i].onclick = function () {
                 //异步执行,此时i为liNodes.length,此时要操作的对象为upNode,this无法指向,所以要新增一个量来传递i的值,也可用闭包解决.
+
+                // 上一屏
+                preIndex = now;
+
                 move(this.index);
                 now = this.index;
 
@@ -98,6 +244,14 @@ window.onload = function () {
             dotLis[i].className = "";
         }
         dotLis[index].className = "active";
+
+        // 出入场
+        if (anArr[index]&&typeof anArr[index]["inAn"] === "function") {
+            anArr[index]["inAn"]();
+        }
+        if (anArr[preIndex]&&typeof anArr[preIndex]["outAn"] === "function") {
+            anArr[preIndex]["outAn"]();
+        }
 
     };
 
@@ -150,6 +304,8 @@ window.onload = function () {
         }else if (ev.detail) {
             dir = ev.wheelDelta<0?"up":"down";
         }
+        // 上一屏
+        preIndex = now;
         switch (dir) {
             case "up":
                 // 往上滑动,当前屏减1,例如当前第二屏,上滑一屏就为第一屏
